@@ -1,0 +1,140 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none; border: none; text-decoration: none;
+    max-height: 100vh;
+    max-width: 100vw;
+    font-family: 'Space Grotesk';
+
+}
+
+body{
+    min-height: 100vh;
+}
+
+.left-board{
+    min-height: 100vh;
+    display: flex;
+
+    .cards{
+        background-color: transparent;
+    }
+
+    .cards .card-front .card-container{
+        color: white;
+        font-weight: 500;
+        background-color: transparent !important;
+        width: 400px;
+        position: absolute;
+        top: 230px;
+        left: 160px;
+    }
+
+    .cards .card-front .card-container .card-info{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+
+    .card-front .card-logo{
+        position: absolute;
+        top: -110px;
+        left: 0px;
+        z-index: 1;
+    }
+
+    .card-back .card-back{
+        top: 400px;
+        left:250px;
+        position: absolute;
+        border-radius: 10px;
+    }
+    .card-front .card-front{
+        top: 100px;
+        left: 140px;
+        position: absolute;
+        border-radius: 10px;
+    }
+
+    .card-back span{
+        color: white;
+        font-weight: 500;
+        position: absolute;
+        top: 510px;
+        left: 590px;
+    }
+}
+
+.right-board{
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    width: 38%;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    padding: 60px;
+
+    span{
+        font-size: 18px;
+    }
+
+    form{
+        padding: 20px;
+    }
+
+    form .inputBox{
+        margin-top: 20px;
+    }
+
+    form .confirm-btn{
+        background-color: hsl(278, 68%, 11%);
+        width: 100%;
+        height: 60px;
+        margin-top: 15px;
+        border-radius: 10px;
+        font-size: 18px;
+        cursor: pointer;
+        color: white;
+    }
+
+
+    .card-holder-input, 
+    .card-number-input{
+        border: 2px solid hsl(279, 6%, 55%);
+        border-radius: 5px;
+        width: 400px;
+        height: 40px;
+        padding-left: 10px;
+        margin-top: 10px;
+    }
+
+    .flexbox .month-input, .year-input{
+        border: 2px solid hsl(279, 6%, 55%);
+        margin-top: 10px;
+        border-radius:7px;
+        width: 100px;
+        height: 40px;
+        padding-left: 10px;
+    }
+    
+    .cvc-input{
+        display: inline;
+        border: 2px solid hsl(279, 6%, 55%);
+        border-radius: 5px;
+        margin-top: 10px;
+        width: 205px;
+        height: 40px;
+        border-radius:7px;
+        padding-left: 10px;
+        margin-bottom: 10px;
+    }
+    
+}
+
+.thank{
+    display:none
+}
