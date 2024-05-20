@@ -1,4 +1,3 @@
-document.addEventListener("DOMContentLoaded", function() {
     const cardNumber = document.getElementById("inp-number");
     const cardName = document.getElementById("inp-name");
     const cardMonth = document.getElementById("inp-month");
@@ -37,4 +36,101 @@ document.addEventListener("DOMContentLoaded", function() {
                      .replace(/(.{4})/g, "$1 ")
                      .trim();
     }
-});
+
+    document.addEventListener('submit', e => {
+            e.preventDefault();
+
+            validateInputs();
+    });
+
+    const setError = (element, message) => {
+        const inputControl = element.parentElement;
+        const errorDisplay = inputControl.querySelector('.error');
+
+        errorDisplay.innerText = message;
+        inputControl.classList.add('error');
+        inputControl.classList.remove('success');
+    }
+
+    const setSuccess = element => {
+        const inputControl = element.parentElement;
+        const errorDisplay = inputControl.querySelector('.error');
+
+        errorDisplay.innerText = ' ';
+        inputControl.classList.add('success');
+        inputControl.classList.remove('error');
+    };
+
+    const isCardNumberValid = cardNumber => {
+        const re = /^[0-9]{16}$/;
+        return re.test(cardNumber);
+    }
+
+    const isNumberDateValid = monthInput => {
+        const re = /^[0-9]{2}$/;
+        return re.test(monthInput);
+    }
+    
+    const isCvcValid = cvcInput => {
+        const re = /^[0-9]{3}$/;
+        return re.test(cvcInput);
+    }
+
+    const validateInputs = () => {
+        let hasError = false;
+    
+        if(cardHolderNameInput.value === ''){
+            setError(cardHolderNameInput, 'Name is required');
+            hasError = true;
+        } else {
+            setSuccess(cardHolderNameInput);
+        }
+    
+        if(cardNumberInput.value === ''){
+            setError(cardNumberInput, 'Card number is required');
+            hasError = true;
+        } else if(!isCardNumberValid(cardNumberInput.value)){
+            setError(cardNumberInput, 'Provide a valid card number');
+            hasError = true;
+        } else {
+            setSuccess(cardNumberInput);
+        }
+    
+        if(monthInput.value === ''){
+            setError(monthInput, 'Exp. month is required');
+            hasError = true;
+        } else if(!isNumberDateValid(monthInput.value)){
+            setError(monthInput, 'Provide a valid date');
+            hasError = true;
+        } else{
+            setSuccess(monthInput);
+        }
+    
+        if(yearInput.value === ''){
+            setError(yearInput, 'Exp. month is required');
+            hasError = true;
+        } else if(!isNumberDateValid(yearInput.value)){
+            setError(yearInput, 'Provide a valid date');
+            hasError = true;
+        } else{
+            setSuccess(yearInput);
+        }
+    
+        if(cvcInput.value === ''){
+            setError(cvcInput, 'Exp. month is required');
+            hasError = true;
+        } else if(!isCvcValid(cvcInput.value)){
+            setError(cvcInput, 'Provide a valid cvc number');
+            hasError = true;
+        } else{
+            setSuccess(cvcInput);
+        }
+    
+        if(!hasError){
+            document.querySelector('.thank').style.display = 'block';
+        } else {
+            document.querySelector('.thank').style.display = 'none';
+        }
+    };
+    
+    

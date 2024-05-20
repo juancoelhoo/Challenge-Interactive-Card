@@ -6,6 +6,7 @@
     max-height: 100vh;
     max-width: 100vw;
     font-family: 'Space Grotesk';
+    
 
 }
 
@@ -136,5 +137,23 @@ body{
 }
 
 .thank{
-    display:none
+    width: 350px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    visibility: hidden;
+}
+
+.thank p{
+    font-size: 20px;
+}
+
+.error{
+    color: #ff3860;
+}
+
+.error input{
+    border-color: #ff3860;
 }
